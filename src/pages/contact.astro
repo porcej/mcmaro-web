@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+/** https://web3forms.com — set in `.env` as PUBLIC_WEB3FORMS_ACCESS_KEY */
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+const formConfigured = Boolean(web3formsKey);
+---
+
+<BaseLayout
+  title="Contact | MCM Amateur Radio Operations"
+  description="Contact MCM Amateur Radio Operations for volunteer questions and race communications information."
+>
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <Icon name="lucide:message-square" class="w-16 h-16 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+        <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Have questions about volunteering or need more information? We're here to help!
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-1 gap-8 mb-12">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+          <Icon name="lucide:mail" class="w-12 h-12 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+          <h3 class="font-bold text-lg mb-2">Email</h3>
+          <p class="text-gray-700 mb-2">For general inquiries and volunteer questions:</p>
+          <a href="mailto:info@mcmaro.com" class="text-[#CC0000] hover:underline font-semibold">
+            info@mcmaro.com
+          </a>
+        </div>
+        <!-- 
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+          <Icon name="lucide:radio" class="w-12 h-12 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+          <h3 class="font-bold text-lg mb-2">Emergency Net</h3>
+          <p class="text-gray-700 mb-2">Race day only — monitoring begins at 7:00 AM:</p>
+          <p class="font-mono font-semibold text-gray-900">146.XXX MHz (PL XXX.X)</p>
+          <p class="text-sm text-gray-600 mt-2">Frequency details provided to registered volunteers</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+          <Icon name="lucide:message-square" class="w-12 h-12 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+          <h3 class="font-bold text-lg mb-2">Social Media</h3>
+          <p class="text-gray-700 mb-3">Follow us for updates and announcements</p>
+          <div class="space-y-2">
+            <div>
+              <a href="#" class="text-[#CC0000] hover:underline font-semibold">@MCMARO on Twitter</a>
+            </div>
+            <div>
+              <a href="#" class="text-[#CC0000] hover:underline font-semibold">MCM ARO on Facebook</a>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm p-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
+        {!formConfigured && (
+          <div class="mb-6 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+            <strong class="font-semibold">Contact form not configured.</strong> For local development, add{' '}
+            <code class="rounded bg-amber-100/80 px-1 py-0.5 text-xs">PUBLIC_WEB3FORMS_ACCESS_KEY</code> to your{' '}
+            <code class="rounded bg-amber-100/80 px-1 py-0.5 text-xs">.env</code> file (see{' '}
+            <code class="rounded bg-amber-100/80 px-1 py-0.5 text-xs">.env.example</code>). Or email us directly at{' '}
+            <a href="mailto:info@mcmaro.com" class="font-semibold underline">info@mcmaro.com</a>.
+          </div>
+        )}
+        <form id="contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="cf-name">
+                Name <span class="text-red-600">*</span>
+              </label>
+              <input
+                id="cf-name"
+                type="text"
+                name="name"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#CC0000] focus:border-transparent outline-none"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="cf-email">
+                Email <span class="text-red-600">*</span>
+              </label>
+              <input
+                id="cf-email"
+                type="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#CC0000] focus:border-transparent outline-none"
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="cf-callsign">Call Sign</label>
+              <input
+                id="cf-callsign"
+                type="text"
+                name="callsign"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#CC0000] focus:border-transparent outline-none uppercase"
+                placeholder="K1ABC (optional)"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2" for="cf-subject">
+                Subject <span class="text-red-600">*</span>
+              </label>
+              <select
+                id="cf-subject"
+                name="subject"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#CC0000] focus:border-transparent outline-none"
+              >
+                <option value="">Select a subject</option>
+                <option value="volunteer">Volunteer Registration Question</option>
+                <option value="equipment">Equipment Question</option>
+                <option value="race-day">Race Day Information</option>
+                <option value="assignment">Assignment Question</option>
+                <option value="technical">Technical/Radio Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold mb-2" for="cf-message">
+              Message <span class="text-red-600">*</span>
+            </label>
+            <textarea
+              id="cf-message"
+              name="message"
+              required
+              rows={6}
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#CC0000] focus:border-transparent outline-none resize-none"
+              placeholder="Please provide as much detail as possible..."
+            />
+          </div>
+
+          <p id="contact-form-error" class="hidden text-sm font-semibold text-red-700" role="alert" />
+          <div id="contact-form-success" class="hidden rounded-md border border-green-200 bg-green-50 px-4 py-3 text-green-900">
+            Thank you — your message was sent. We’ll get back to you as soon as we can.
+          </div>
+
+          <div>
+            <button
+              id="contact-form-submit"
+              type="submit"
+              disabled={!formConfigured}
+              class="w-full bg-[#CC0000] text-white py-3 px-6 rounded-md font-bold text-lg hover:bg-[#A00000] transition shadow-lg flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <Icon name="lucide:send" class="w-5 h-5" aria-hidden="true" />
+              <span id="contact-form-submit-label">Send Message</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-12 bg-white rounded-lg shadow-sm p-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-4">Communications Coordinator</h2>
+        <p class="text-gray-700 mb-4">
+          The MCM Amateur Radio Operations team is coordinated by experienced amateur radio operators who work
+          closely with Marine Corps Marathon officials to ensure seamless communications support.
+        </p>
+        <p class="text-gray-700">
+          For urgent matters or if you don't receive a response within 48 hours, please send a follow-up email
+          to <a href="mailto:info@mcmaro.com" class="text-[#CC0000] hover:underline font-semibold"
+            >info@mcmaro.com</a
+          >
+          with "URGENT" in the subject line.
+        </p>
+      </div>
+
+      <div class="mt-8 bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+        <h3 class="font-bold text-lg mb-2 text-blue-900">Official Marine Corps Marathon Information</h3>
+        <p class="text-gray-700 mb-2">
+          For questions about the marathon itself (not amateur radio operations), please contact the official
+          Marine Corps Marathon organization:
+        </p>
+        <a
+          href="https://www.marinemarathon.com/contact"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-blue-700 hover:text-blue-800 font-semibold underline"
+        >
+          www.marinemarathon.com/contact
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ web3formsKey }}>
+    const subjectLabels = {
+      volunteer: 'Volunteer Registration Question',
+      equipment: 'Equipment Question',
+      'race-day': 'Race Day Information',
+      assignment: 'Assignment Question',
+      technical: 'Technical/Radio Question',
+      other: 'Other',
+    };
+
+    const form = document.getElementById('contact-form');
+    const errEl = document.getElementById('contact-form-error');
+    const okEl = document.getElementById('contact-form-success');
+    const submitBtn = document.getElementById('contact-form-submit');
+    const submitLabel = document.getElementById('contact-form-submit-label');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errEl?.classList.add('hidden');
+      okEl?.classList.add('hidden');
+
+      if (!web3formsKey) {
+        if (errEl) {
+          errEl.textContent =
+            'Form is not configured. Add PUBLIC_WEB3FORMS_ACCESS_KEY to .env or email info@mcmaro.com.';
+          errEl.classList.remove('hidden');
+        }
+        return;
+      }
+
+      const fd = new FormData(form);
+      const subjectKey = fd.get('subject');
+      const category =
+        typeof subjectKey === 'string' ? subjectLabels[subjectKey] ?? subjectKey : '';
+      const name = String(fd.get('name') ?? '').trim();
+      const email = String(fd.get('email') ?? '').trim();
+      const callsign = String(fd.get('callsign') ?? '').trim();
+      const message = String(fd.get('message') ?? '').trim();
+
+      submitBtn && (submitBtn.disabled = true);
+      if (submitLabel) submitLabel.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: web3formsKey,
+            subject: `[MCM ARO Contact] ${category}`,
+            name,
+            email,
+            message: [
+              `Category: ${category}`,
+              callsign ? `Call sign: ${callsign}` : null,
+              '',
+              message,
+            ]
+              .filter(Boolean)
+              .join('\n'),
+          }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.success === false) {
+          throw new Error(data.message || 'Something went wrong. Please try again or email info@mcmaro.com.');
+        }
+
+        okEl?.classList.remove('hidden');
+        form?.reset();
+      } catch (err) {
+        if (errEl) {
+          errEl.textContent = err instanceof Error ? err.message : 'Submission failed.';
+          errEl.classList.remove('hidden');
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitLabel) submitLabel.textContent = 'Send Message';
+      }
+    });
+  </script>
+</BaseLayout>

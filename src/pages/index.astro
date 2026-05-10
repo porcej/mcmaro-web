@@ -1,17 +1,184 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 
+const roles = [
+  { title: 'Start Line', desc: 'Coordinate pre-race activities and runner deployment' },
+  { title: 'Finish Line', desc: 'Support finish area operations and runner services' },
+  { title: 'Course Positions', desc: 'Monitor key mile markers and intersections' },
+  { title: 'Medical Tents', desc: 'Relay medical information and emergency response' },
+  { title: 'Liaison', desc: 'Coordinate with external stakeholders such as EMS and law enforcement' },
+  { title: 'Shadows', desc: 'Accompany key race officials for direct communication' },
+  { title: 'Net Control', desc: 'Manage radio traffic and coordinate all operators' },
+  { title: 'Roving', desc: 'Mobile operators providing flexible support where needed' },
+] as const;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="MCM Amateur Radio Operations | Home"
+  description="Join amateur radio operators supporting the Marine Corps Marathon with reliable communications across the course."
+>
+  <section class="bg-gradient-to-br from-[#CC0000] to-[#8B0000] text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <img
+        src="/images/mcmo_solid_white.png"
+        alt="Marine Corps Marathon Organization"
+        width="1201"
+        height="1002"
+        class="mx-auto mb-8 max-h-28 sm:max-h-36 md:max-h-40 w-auto max-w-[min(28rem,92vw)] object-contain opacity-95"
+        decoding="async"
+        loading="eager"
+      />
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        Amateur Radio Support for the Marine Corps Marathon
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+        Join our team of licensed amateur radio operators providing critical communications support for
+        one of America's premier marathons.
+      </p>
+      <a
+        href="/volunteer"
+        class="inline-block bg-white text-[#CC0000] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg"
+      >
+        Volunteer as a Radio Operator
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <Icon name="lucide:radio" class="w-8 h-8 text-[#CC0000]" aria-hidden="true" />
+        <h2 class="text-3xl font-bold">What We Do</h2>
+      </div>
+      <div class="space-y-5 text-lg text-gray-700 leading-relaxed max-w-4xl">
+        <p>
+          Amateur Radio Operators (AROs) provide critical communications support throughout the Marine Corps
+          Marathon course, serving as the eyes and ears of race operations across all 26.2 miles. Our operators
+          act as a vital “911” communications service for race officials, medical personnel, and logistics teams
+          by delivering reliable real-time voice communications when rapid coordination matters most.
+        </p>
+        <p>
+          AROs provide immediate reporting of course conditions, track runners requiring medical assistance,
+          support Aid and Medical Stations with direct communications, and relay important back-channel information
+          to district commanders and race leadership. Operators also provide backup communications capabilities for
+          Medical, the Race Operations Center, and Unified Command to ensure uninterrupted coordination during the
+          event.
+        </p>
+        <p>
+          Supporting the Marine Corps Marathon requires a fully staffed Amateur Radio team of approximately 150
+          volunteer operators working together to help keep runners, spectators, and staff safe throughout race
+          weekend.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <Icon name="lucide:users" class="w-8 h-8 text-[#CC0000]" aria-hidden="true" />
+        <h2 class="text-3xl font-bold">Who Can Volunteer</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold text-xl mb-3 text-[#CC0000]">FCC License Required</h3>
+          <p>
+            All volunteers must hold a valid FCC amateur radio license (Technician, General, or Extra class).
+            If you're studying for your license, we encourage you to join us once you've passed!
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold text-xl mb-3 text-[#CC0000]">Equipment</h3>
+          <p>
+            While most positions only require a VHF/UHF (144/440 MHz) HT with a good antenna, some positions may
+            require more power, larger antennas, and higher battery capacities. For these locations, portable
+            mobile radios may be required. We'll provide frequency assignments and programming information before
+            race day.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold text-xl mb-3 text-[#CC0000]">Experience Level</h3>
+          <p>
+            Operators of all experience levels are welcome! Whether you've been a ham for decades or just earned
+            your Technician license, there's a role for you on our team.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="font-bold text-xl mb-3 text-[#CC0000]">New Hams Welcome</h3>
+          <p>
+            First-time volunteers and newly licensed operators receive mentorship and support. We'll pair you
+            with experienced operators and provide pre-race training to ensure you're comfortable with your
+            assignment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <Icon name="lucide:map-pin" class="w-8 h-8 text-[#CC0000]" aria-hidden="true" />
+        <h2 class="text-3xl font-bold">Race-Day Roles</h2>
+      </div>
+      <p class="text-gray-700 mb-8">
+        Our operators fill various positions throughout the marathon course and support infrastructure:
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {
+          roles.map((role) => (
+            <div class="border border-gray-200 rounded-lg p-4 hover:border-[#CC0000] transition">
+              <h3 class="font-bold text-[#CC0000] mb-2">{role.title}</h3>
+              <p class="text-sm text-gray-600">{role.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 mb-6">
+        <Icon name="lucide:external-link" class="w-8 h-8 text-[#CC0000]" aria-hidden="true" />
+        <h2 class="text-3xl font-bold">Important Links</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a
+          href="/volunteer"
+          class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition border-2 border-transparent hover:border-[#CC0000] text-center"
+        >
+          <Icon name="lucide:shield" class="w-12 h-12 mx-auto mb-3 text-[#CC0000]" aria-hidden="true" />
+          <h3 class="font-bold text-lg mb-2">Register to Volunteer</h3>
+          <p class="text-sm text-gray-600">Sign up to join our team</p>
+        </a>
+        <a
+          href="/faq"
+          class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition border-2 border-transparent hover:border-[#CC0000] text-center"
+        >
+          <h3 class="font-bold text-lg mb-2">FAQ</h3>
+          <p class="text-sm text-gray-600">Common questions answered</p>
+        </a>
+        <a
+          href="/contact"
+          class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition border-2 border-transparent hover:border-[#CC0000] text-center"
+        >
+          <h3 class="font-bold text-lg mb-2">Contact Us</h3>
+          <p class="text-sm text-gray-600">Get in touch with our team</p>
+        </a>
+        <a
+          href="https://www.marinemarathon.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition border-2 border-transparent hover:border-[#CC0000] text-center"
+        >
+          <h3 class="font-bold text-lg mb-2">Official MCM Site</h3>
+          <p class="text-sm text-gray-600">Marine Corps Marathon</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+</BaseLayout>

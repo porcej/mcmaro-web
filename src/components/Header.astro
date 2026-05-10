@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon/components';
+
+/** PNG in `public/images/` — must start with `/` or nested routes resolve relative to the page URL */
+const logoSrc = '/images/mcm_solid_white.png';
+const logoAlt = 'MCM Amateur Radio Operations';
+
+const pathname = Astro.url.pathname;
+
+const navLinks_ = [
+  { path: '/', label: 'Home' },
+  { path: '/volunteer', label: 'Volunteer' },
+  { path: '/what-we-do', label: 'What We Do' },
+  { path: '/requirements', label: 'Requirements' },
+  { path: '/faq', label: 'FAQ' },
+  { path: '/race-day', label: 'Race Day' },
+  { path: '/contact', label: 'Contact' },
+  { path: '/updates', label: 'Updates' },
+];
+
+const navLinks = [
+  { path: '/', label: 'Home' },
+  { path: '/volunteer', label: 'Volunteer' },
+  { path: '/what-we-do', label: 'What We Do' },
+  { path: '/faq', label: 'FAQ' },
+  { path: '/contact', label: 'Contact' },
+];
+
+function isActive(path: string) {
+  if (path === '/') return pathname === '/';
+  return pathname.startsWith(path);
+}
+
+const linkClass = (path: string) =>
+  `px-3 py-2 rounded-md transition ${
+    isActive(path)
+      ? 'bg-white text-[#CC0000] font-semibold'
+      : 'hover:bg-[#A00000]'
+  }`;
+---
+
+<header class="bg-[#CC0000] text-white sticky top-0 z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-3 sm:py-3.5">
+      <a href="/" class="flex items-center gap-3 sm:gap-4 hover:opacity-90 transition">
+        <img
+          src={logoSrc}
+          alt={logoAlt}
+          width="72"
+          height="72"
+          class="h-14 w-auto max-h-16 sm:h-16 sm:max-h-[4.5rem] max-w-[min(12rem,38vw)] object-contain object-left shrink-0"
+          decoding="async"
+        />
+        <div class="flex flex-col">
+          <span class="font-bold text-xl">MCM ARO</span>
+          <span class="text-xs opacity-90">Amateur Radio Operations</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6" aria-label="Primary">
+        {
+          navLinks.map((link) => (
+            <a href={link.path} class={linkClass(link.path)}>
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <details class="group lg:hidden relative">
+        <summary
+          class="list-none cursor-pointer p-2 rounded-md hover:bg-[#A00000] transition flex items-center justify-center [&::-webkit-details-marker]:hidden"
+          aria-label="Toggle menu"
+        >
+          <Icon name="lucide:menu" class="w-6 h-6 group-open:hidden" aria-hidden="true" />
+          <Icon name="lucide:x" class="hidden group-open:block w-6 h-6" aria-hidden="true" />
+        </summary>
+        <nav
+          class="pb-4 flex flex-col gap-2 absolute right-0 top-full min-w-[12rem] bg-[#CC0000] shadow-lg rounded-b-md px-2 z-50 border border-white/10 border-t-0"
+          aria-label="Mobile primary"
+        >
+          {
+            navLinks.map((link) => (
+              <a href={link.path} class={`${linkClass(link.path)} block text-center`}>
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

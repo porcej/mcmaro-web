@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout
+  title="Requirements & Equipment | MCM Amateur Radio Operations"
+  description="Licensing, equipment, and preparation requirements for MCM Amateur Radio Operations volunteers."
+>
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <Icon name="lucide:award" class="w-16 h-16 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+        <h1 class="text-4xl font-bold mb-4">Requirements & Equipment</h1>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Everything you need to know about licensing, equipment, and preparation for volunteering as an amateur
+          radio operator at the Marine Corps Marathon.
+        </p>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">License Requirements</h2>
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+          <div class="flex gap-4 mb-4">
+            <Icon name="lucide:award" class="w-8 h-8 text-[#CC0000] shrink-0" aria-hidden="true" />
+            <div>
+              <h3 class="font-bold text-xl mb-2">Valid FCC Amateur Radio License</h3>
+              <p class="text-gray-700 mb-4">
+                All volunteers must hold a current, valid FCC amateur radio license. We accept all license classes:
+              </p>
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold mb-2">Technician Class</h4>
+                  <p class="text-sm text-gray-600">Entry-level license with VHF/UHF privileges</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold mb-2">General Class</h4>
+                  <p class="text-sm text-gray-600">Intermediate license with expanded HF access</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold mb-2">Amateur Extra</h4>
+                  <p class="text-sm text-gray-600">Highest license class with full privileges</p>
+                </div>
+              </div>
+              <div class="mt-4 bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                <p class="text-sm text-gray-700">
+                  <strong>Don't have your license yet?</strong> Visit{' '}
+                  <a
+                    href="https://www.arrl.org/getting-licensed"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-700 underline">ARRL's Getting Licensed page</a
+                  >
+                  to find exam sessions near you. Once you pass, we'd love to have you on our team!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Equipment Requirements</h2>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="lucide:circle-check" class="w-6 h-6 text-green-600" aria-hidden="true" />
+              <h3 class="font-bold text-xl">Required Equipment</h3>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex gap-3">
+                <Icon name="lucide:radio" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <strong>VHF/UHF Radio:</strong> Handheld or mobile transceiver capable of 2-meter (146 MHz)
+                  operation
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <Icon name="lucide:battery" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <strong>Power:</strong> Fresh batteries or fully charged battery pack (plan for 6-8 hours of
+                  operation)
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <Icon name="lucide:headphones" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <strong>Audio Accessory:</strong> Earpiece or speaker mic recommended for noisy environments
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name="lucide:circle-check" class="w-6 h-6 text-blue-600" aria-hidden="true" />
+              <h3 class="font-bold text-xl">Recommended Equipment</h3>
+            </div>
+            <ul class="space-y-3">
+              <li class="flex gap-3">
+                <Icon name="lucide:battery" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <strong>Spare Batteries:</strong> Extra battery pack or AA battery case
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <Icon name="lucide:radio" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <strong>Dual-Band Radio:</strong> 2m/70cm capability provides flexibility
+                </div>
+              </li>
+              <li class="flex gap-3">
+                <Icon name="lucide:headphones" class="w-5 h-5 text-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
+                <div>
+                  <strong>VOX Headset:</strong> Hands-free operation for roving positions
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-lg mb-4">Popular Radio Models Used by Our Team</h3>
+          <p class="text-gray-700 mb-4">
+            While any VHF-capable radio will work, here are some models commonly used by our operators:
+          </p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+            <div class="bg-white p-3 rounded border border-gray-200">
+              <strong>Yaesu FT-60R</strong>
+              <p class="text-gray-600">Rugged dual-band HT</p>
+            </div>
+            <div class="bg-white p-3 rounded border border-gray-200">
+              <strong>Baofeng UV-5R</strong>
+              <p class="text-gray-600">Budget-friendly option</p>
+            </div>
+            <div class="bg-white p-3 rounded border border-gray-200">
+              <strong>Kenwood TH-D74A</strong>
+              <p class="text-gray-600">Advanced features</p>
+            </div>
+            <div class="bg-white p-3 rounded border border-gray-200">
+              <strong>Icom ID-52A</strong>
+              <p class="text-gray-600">D-STAR capable</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Personal Items to Bring</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <Icon name="lucide:shirt" class="w-8 h-8 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Clothing & Comfort</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Weather-appropriate clothing (check forecast)</li>
+              <li>• Comfortable shoes (you may be standing for hours)</li>
+              <li>• Hat and sunglasses for outdoor positions</li>
+              <li>• Rain gear if weather threatens</li>
+              <li>• Layers (temperature can change throughout the day)</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <Icon name="lucide:clock" class="w-8 h-8 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Essentials</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Water bottle (stay hydrated!)</li>
+              <li>• Snacks or lunch</li>
+              <li>• Notepad and pen for logging</li>
+              <li>• Watch or clock for time checks</li>
+              <li>• Fully charged cell phone</li>
+              <li>• Portable chair (if assigned to stationary position)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Logistics & Availability</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#CC0000]">
+            <Icon name="lucide:clock" class="w-8 h-8 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Time Commitment</h3>
+            <p class="text-gray-700 mb-4">Plan to be available for the entire race day, typically:</p>
+            <ul class="space-y-2 text-gray-700">
+              <li>• <strong>Check-in:</strong> 6:00 AM - 6:30 AM</li>
+              <li>• <strong>On-position:</strong> 7:00 AM - 3:00 PM</li>
+              <li>• <strong>Debrief:</strong> 3:00 PM - 3:30 PM</li>
+            </ul>
+            <p class="text-sm text-gray-600 mt-4">Total commitment: Approximately 9-10 hours</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#CC0000]">
+            <Icon name="lucide:car" class="w-8 h-8 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Transportation & Parking</h3>
+            <p class="text-gray-700 mb-4">Important logistics information:</p>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Parking information provided with assignment</li>
+              <li>• Some positions require personal vehicle for roving</li>
+              <li>• Public transportation options available</li>
+              <li>• Rideshare to/from venue encouraged</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-[#CC0000] to-[#8B0000] text-white rounded-lg p-8">
+        <h2 class="text-2xl font-bold mb-4">Preparation Tips</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-bold mb-2">Before Race Day</h3>
+            <ul class="space-y-2 text-sm opacity-90">
+              <li>✓ Test your radio and confirm it's working properly</li>
+              <li>✓ Charge all batteries fully</li>
+              <li>✓ Program frequencies (we'll provide list)</li>
+              <li>✓ Review race course map and your assignment</li>
+              <li>✓ Attend the pre-race briefing (mandatory)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Race Day Morning</h3>
+            <ul class="space-y-2 text-sm opacity-90">
+              <li>✓ Arrive early for check-in</li>
+              <li>✓ Verify radio operation on test frequency</li>
+              <li>✓ Get assignment details and position map</li>
+              <li>✓ Understand your reporting chain</li>
+              <li>✓ Know the emergency procedures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

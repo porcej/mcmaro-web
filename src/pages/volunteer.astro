@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout
+  title="Volunteer | MCM Amateur Radio Operations"
+  description="Volunteer registration for MCM Amateur Radio Operators opens around June 1. Register through the Marine Corps Marathon volunteer system, then access the Amateur Radio Operator portal."
+>
+  <div class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <Icon name="lucide:user-plus" class="w-16 h-16 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+        <h1 class="text-4xl font-bold mb-4">Volunteer Registration</h1>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          Registration opens on or about June 1 each year through the Marine Corps Marathon volunteer system. Use the
+          information below to register and access the Amateur Radio Operator portal.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm p-8 mb-8">
+        <div class="space-y-5 text-gray-700 leading-relaxed">
+          <p>
+            Volunteer registration for Amateur Radio Operators supporting the Marine Corps Marathon typically opens on or
+            about June 1 each year. Operators interested in supporting the race should monitor the official Marine Corps
+            Marathon volunteer page for registration announcements and updates:
+          </p>
+          <p>
+            <a
+              href="https://www.marinemarathon.com/volunteer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-semibold text-[#CC0000] underline hover:text-[#A00000]"
+              >Marine Corps Marathon Volunteer Page</a
+            >
+          </p>
+          <p>
+            Once volunteer registration opens, operators must first complete registration through the Marine Corps
+            Marathon volunteer system. After registering, you should receive an email within approximately one week with
+            instructions for accessing the Amateur Radio Operator portal.
+          </p>
+          <p>
+            After logging into the site, operators will have access to important event information and documents,
+            including:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 marker:text-[#CC0000]">
+            <li>Operator guides</li>
+            <li>Frequency plans</li>
+            <li>Assignment information</li>
+            <li>Communications and event updates</li>
+            <li>Training and operational materials</li>
+          </ul>
+          <p>
+            The Amateur Radio team plays a critical role in supporting race operations, medical coordination, logistics,
+            and runner safety throughout the event. We appreciate your willingness to volunteer and support the Marine
+            Corps Marathon.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+        <h2 class="text-2xl font-bold mb-4">Why Volunteer?</h2>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex gap-3">
+            <Icon name="lucide:radio" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Participate in one of the nation's most prestigious marathon events</span>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="lucide:radio" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Gain experience in large-scale emergency communications and event support</span>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="lucide:radio" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Network with fellow amateur radio operators from across the region</span>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="lucide:radio" class="w-5 h-5 text-[#CC0000] shrink-0 mt-0.5" aria-hidden="true" />
+            <span>Contribute to runner safety and race success</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

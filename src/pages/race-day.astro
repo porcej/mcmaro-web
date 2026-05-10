@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const timeline_ = [
+  {
+    time: '5:30 AM',
+    event: 'Parking Areas Open',
+    desc: 'Arrive early to allow time for parking and check-in',
+  },
+  {
+    time: '6:00 AM',
+    event: 'Volunteer Check-In Opens',
+    desc: 'Report to designated check-in location with your equipment',
+  },
+  {
+    time: '6:30 AM',
+    event: 'Equipment Testing',
+    desc: 'Test radios on designated frequency, verify communications',
+  },
+  {
+    time: '7:00 AM',
+    event: 'Deploy to Positions',
+    desc: 'Travel to your assigned position, establish communications',
+  },
+  {
+    time: '7:30 AM',
+    event: 'Net Opens / Radio Check',
+    desc: 'All stations check in with Net Control, verify readiness',
+  },
+  {
+    time: '7:55 AM',
+    event: 'Race Start (Wheelchair Division)',
+    desc: 'Monitor start area, begin race communications',
+  },
+  {
+    time: '8:00 AM',
+    event: 'Race Start (Main Field)',
+    desc: 'Full operations begin, maintain constant vigilance',
+  },
+  {
+    time: '8:00 AM - 2:30 PM',
+    event: 'Race Operations',
+    desc: 'Active communications support throughout the race',
+  },
+  {
+    time: '2:30 PM',
+    event: 'Course Closing',
+    desc: 'Final runners pass, begin position shutdown procedures',
+  },
+  {
+    time: '3:00 PM',
+    event: 'Net Closes',
+    desc: 'All stations check out with Net Control',
+  },
+  {
+    time: '3:00 PM - 3:30 PM',
+    event: 'Debrief & Return Equipment',
+    desc: 'Return to check-in location for debrief and certificate pickup',
+  },
+] as const;
+
+const timeline = [] as const;
+---
+
+<BaseLayout
+  title="Race Day | MCM Amateur Radio Operations"
+  description="Race day timeline, check-in, radio procedures, and safety information for MCM Amateur Radio Operations volunteers."
+>
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <Icon name="lucide:calendar" class="w-16 h-16 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+        <h1 class="text-4xl font-bold mb-4">Race Day Information</h1>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Everything you need to know for a successful race day as a Marine Corps Marathon amateur radio
+          volunteer.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-[#CC0000] to-[#8B0000] text-white rounded-lg p-8 mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-center">2026 Important Dates</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="text-center">
+            <Icon name="lucide:calendar" class="w-12 h-12 mx-auto mb-3 opacity-90" aria-hidden="true" />
+            <div class="text-3xl font-bold mb-2">TBD</div>
+            <div class="text-sm opacity-90">Pre-Race Briefing</div>
+          </div>
+          <div class="text-center">
+            <Icon name="lucide:calendar" class="w-12 h-12 mx-auto mb-3 opacity-90" aria-hidden="true" />
+            <div class="text-3xl font-bold mb-2">TBD</div>
+            <div class="text-sm opacity-90">Equipment Check</div>
+          </div>
+          <div class="text-center">
+            <Icon name="lucide:calendar" class="w-12 h-12 mx-auto mb-3 opacity-90" aria-hidden="true" />
+            <div class="text-3xl font-bold mb-2">Oct 25</div>
+            <div class="text-sm opacity-90">Race Day</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Race Day Timeline</h2>
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+          <div class="divide-y divide-gray-200">
+            {
+              timeline.map((item) => (
+                <div class="p-4 flex gap-4 hover:bg-gray-50 transition">
+                  <div class="shrink-0">
+                    <div class="bg-[#CC0000] text-white px-3 py-1 rounded-md font-bold text-sm whitespace-nowrap">
+                      {item.time}
+                    </div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 mb-1">{item.event}</h3>
+                    <p class="text-sm text-gray-600">{item.desc}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Check-In & Staging</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:map-pin" class="w-8 h-8 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Check-In Location</h3>
+            <p class="text-gray-700 mb-2">
+              <strong>Arlington County Fire & EMS Station 5</strong><br />
+              1750 Crystal Drive<br />
+              Arlington, VA 22202
+            </p>
+            <p class="text-sm text-gray-600 mt-4">
+              Specific check-in details will be provided via email to registered volunteers approximately one week
+              before race day.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:clock" class="w-8 h-8 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">What to Bring to Check-In</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ Photo ID</li>
+              <li>✓ FCC license (copy acceptable)</li>
+              <li>✓ Programmed radio with charged batteries</li>
+              <li>✓ Confirmation email (printed or on phone)</li>
+              <li>✓ Water, snacks, and personal items</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Radio Procedures & Protocols</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+            <Icon name="lucide:radio" class="w-8 h-8 text-blue-600 mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Standard Operating Procedures</h3>
+            <ul class="space-y-2 text-gray-700 text-sm">
+              <li>• Use tactical callsigns (e.g., "Mile 10", "Medical 3")</li>
+              <li>• Keep transmissions brief and clear</li>
+              <li>• Wait for Net Control acknowledgment</li>
+              <li>• Use plain language (no 10-codes)</li>
+              <li>• Identify with FCC callsign every 10 minutes</li>
+              <li>• Listen before transmitting</li>
+              <li>• Emergency traffic has absolute priority</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+            <Icon name="lucide:clipboard-list" class="w-8 h-8 text-green-600 mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-lg mb-3">Message Priorities</h3>
+            <div class="space-y-3 text-sm">
+              <div>
+                <strong class="text-red-700">EMERGENCY:</strong>
+                <p class="text-gray-700">Medical emergency, runner in distress, safety hazard</p>
+              </div>
+              <div>
+                <strong class="text-orange-600">PRIORITY:</strong>
+                <p class="text-gray-700">Course issues, supply shortages, operational problems</p>
+              </div>
+              <div>
+                <strong class="text-green-700">ROUTINE:</strong>
+                <p class="text-gray-700">Status updates, information requests, general traffic</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <div class="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
+          <div class="flex gap-4">
+            <Icon name="lucide:triangle-alert" class="w-8 h-8 text-red-600 shrink-0" aria-hidden="true" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4 text-red-900">Emergency Procedures</h2>
+              <div class="space-y-4 text-gray-800">
+                <div>
+                  <h3 class="font-bold mb-2">Medical Emergency</h3>
+                  <ol class="list-decimal list-inside space-y-1 text-sm">
+                    <li>Call "EMERGENCY TRAFFIC" three times to clear the net</li>
+                    <li>Identify your position and the nature of emergency</li>
+                    <li>Provide exact location with landmarks</li>
+                    <li>Follow Net Control instructions</li>
+                    <li>Remain on scene to guide first responders if safe to do so</li>
+                  </ol>
+                </div>
+                <div>
+                  <h3 class="font-bold mb-2">Lost Communication</h3>
+                  <p class="text-sm">
+                    If you lose contact with Net Control: (1) Check your radio settings and battery, (2) Try to reach
+                    another nearby station, (3) If possible, use cell phone to call Net Control backup number
+                    (provided at briefing), (4) Do NOT abandon your position.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Position-Specific Information</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:map-pin" class="w-6 h-6 text-[#CC0000] mb-2" aria-hidden="true" />
+            <h3 class="font-bold mb-2">Course Position</h3>
+            <p class="text-sm text-gray-700">
+              Monitor assigned mile marker, report runner flow, course conditions, and any incidents
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:triangle-alert" class="w-6 h-6 text-[#CC0000] mb-2" aria-hidden="true" />
+            <h3 class="font-bold mb-2">Medical Tent</h3>
+            <p class="text-sm text-gray-700">
+              Relay medical information, coordinate ambulance access, maintain HIPAA awareness
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:users" class="w-6 h-6 text-[#CC0000] mb-2" aria-hidden="true" />
+            <h3 class="font-bold mb-2">Net Control</h3>
+            <p class="text-sm text-gray-700">
+              Coordinate all radio traffic, maintain station log, serve as command liaison
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:circle-check" class="w-6 h-6 text-[#CC0000] mb-2" aria-hidden="true" />
+            <h3 class="font-bold mb-2">Start/Finish</h3>
+            <p class="text-sm text-gray-700">
+              Support high-traffic communications, coordinate VIP movements, manage congestion
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:clipboard-list" class="w-6 h-6 text-[#CC0000] mb-2" aria-hidden="true" />
+            <h3 class="font-bold mb-2">Logistics</h3>
+            <p class="text-sm text-gray-700">
+              Coordinate supply deliveries, equipment moves, and support vehicle access
+            </p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:radio" class="w-6 h-6 text-[#CC0000] mb-2" aria-hidden="true" />
+            <h3 class="font-bold mb-2">Roving</h3>
+            <p class="text-sm text-gray-700">
+              Mobile support, fill gaps, assist where needed, relay when stations can't reach Net Control
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-sm p-8 border border-gray-200">
+        <h2 class="text-2xl font-bold mb-6 text-center">Final Reminders</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-bold text-lg mb-3 text-[#CC0000]">Day Before</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ Charge all radio batteries</li>
+              <li>✓ Test your equipment</li>
+              <li>✓ Review your assignment details</li>
+              <li>✓ Check the weather forecast</li>
+              <li>✓ Prepare your bag with essentials</li>
+              <li>✓ Get a good night's sleep!</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-3 text-[#CC0000]">Race Day Morning</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ Eat breakfast</li>
+              <li>✓ Dress for the weather</li>
+              <li>✓ Arrive early for parking</li>
+              <li>✓ Bring all required items</li>
+              <li>✓ Stay positive and have fun!</li>
+              <li>✓ You're making a difference!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

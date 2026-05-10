@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<BaseLayout
+  title="What We Do | MCM Amateur Radio Operations"
+  description="How amateur radio operators support communications for the Marine Corps Marathon."
+>
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <Icon name="lucide:radio" class="w-16 h-16 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
+        <h1 class="text-4xl font-bold mb-4">What Ham Radio Operators Do</h1>
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+          Amateur radio operators are the communication backbone of the Marine Corps Marathon, providing reliable,
+          coordination across all 26.2 miles of the course.
+        </p>
+      </div>
+
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Our Core Responsibilities</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:message-square" class="w-12 h-12 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-xl mb-3">Communications Support</h3>
+            <p class="text-gray-700">
+              Maintain constant radio contact between race officials, medical teams, and logistics coordinators
+              throughout the entire course.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:heart" class="w-12 h-12 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-xl mb-3">Runner Safety</h3>
+            <p class="text-gray-700">
+              Quickly relay medical emergencies, coordinate first responder access, and ensure rapid communication
+              for any runner in distress.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:truck" class="w-12 h-12 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-xl mb-3">Logistics Coordination</h3>
+            <p class="text-gray-700">
+              Support aid station resupply, equipment deployment, and real-time resource allocation across the
+              marathon course.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <Icon name="lucide:circle-alert" class="w-12 h-12 text-[#CC0000] mb-4" aria-hidden="true" />
+            <h3 class="font-bold text-xl mb-3">Message Handling</h3>
+            <p class="text-gray-700">
+              Process and relay critical information with accuracy and speed, ensuring clear communication in
+              high-pressure situations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-lg p-8 mb-16">
+        <h2 class="text-3xl font-bold mb-6">Why Amateur Radio?</h2>
+        <div class="space-y-4 text-gray-700">
+          <div class="flex gap-4">
+            <Icon name="lucide:clock" class="w-6 h-6 text-[#CC0000] shrink-0 mt-1" aria-hidden="true" />
+            <div>
+              <h3 class="font-bold text-lg mb-1">Reliable Communication</h3>
+              <p>
+                Unlike cellular networks that can become overwhelmed during large events, amateur radio provides
+                immediate, direct communication without relying on commercial infrastructure.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <Icon name="lucide:users" class="w-6 h-6 text-[#CC0000] shrink-0 mt-1" aria-hidden="true" />
+            <div>
+              <h3 class="font-bold text-lg mb-1">Dedicated Networks</h3>
+              <p>
+                We operate on dedicated frequencies with trained operators who understand emergency communication
+                protocols and marathon-specific procedures.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <Icon name="lucide:map-pin" class="w-6 h-6 text-[#CC0000] shrink-0 mt-1" aria-hidden="true" />
+            <div>
+              <h3 class="font-bold text-lg mb-1">Wide Coverage</h3>
+              <p>
+                Our network of strategically positioned operators ensures complete coverage of the entire 26.2-mile
+                course, from start to finish.
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <Icon name="lucide:radio" class="w-6 h-6 text-[#CC0000] shrink-0 mt-1" aria-hidden="true" />
+            <div>
+              <h3 class="font-bold text-lg mb-1">Proven Reliability</h3>
+              <p>
+                Amateur radio has supported the Marine Corps Marathon for 48 years, providing mission-critical
+                communications that race officials depend on.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold mb-8">Typical Communication Scenarios</h2>
+        <div class="space-y-6">
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-500">
+            <h3 class="font-bold text-lg mb-2 text-red-700">Medical Emergency</h3>
+            <p class="text-gray-700">
+              Operator at mile marker 18 spots a runner in distress. They immediately radio Net Control with
+              precise location and symptoms. Net Control coordinates medical response, guides ambulance to exact
+              position, and keeps finish line informed of runner status.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+            <h3 class="font-bold text-lg mb-2 text-blue-700">Supply Coordination</h3>
+            <p class="text-gray-700">
+              Aid station at mile 10 reports low water supplies at 10:30 AM. Logistics operator coordinates
+              resupply truck dispatch, provides route guidance around course closures, and confirms delivery within
+              15 minutes.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+            <h3 class="font-bold text-lg mb-2 text-green-700">Course Monitoring</h3>
+            <p class="text-gray-700">
+              Course position operators relay pace leader passage times, report course conditions (wet pavement,
+              crowding), and alert officials to any hazards that require immediate attention.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-yellow-500">
+            <h3 class="font-bold text-lg mb-2 text-yellow-700">Official Coordination</h3>
+            <p class="text-gray-700">
+              Shadow operators traveling with race directors maintain constant communication with Net Control,
+              enabling real-time decision-making and rapid response to changing conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-[#CC0000] to-[#8B0000] text-white rounded-lg p-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Our Impact</h2>
+        <p class="text-xl mb-6 max-w-3xl mx-auto opacity-90">
+          Over the course of race day, our team of amateur radio operators processes hundreds of messages,
+          coordinates dozens of logistics movements, and ensures that every runner receives the support they need.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div>
+            <div class="text-4xl font-bold mb-2">100+</div>
+            <div class="text-sm opacity-90">Messages Relayed</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold mb-2">26.2</div>
+            <div class="text-sm opacity-90">Miles Covered</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold mb-2">100+</div>
+            <div class="text-sm opacity-90">Operators on Course</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
