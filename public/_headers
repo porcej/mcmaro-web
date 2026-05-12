@@ -1,0 +1,8 @@
+# Keep *.pages.dev (production URL on Pages) and preview deployments out of search indexes.
+# Custom domains are unaffected. See: https://developers.cloudflare.com/pages/configuration/headers/
+
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
