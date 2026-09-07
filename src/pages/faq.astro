@@ -2,11 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { faqs } from '../data/faqs';
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+const faqPageLd = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripHtml(faq.answer),
+    },
+  })),
+};
 ---
 
 <BaseLayout
-  title="FAQ | MCM Amateur Radio Operations"
-  description="Frequently asked questions about volunteering as an amateur radio operator for the Marine Corps Marathon."
+  title="MCM Marathon Ham Radio Volunteer FAQ | ARO & MCM Amateur Radio Operations"
+  description="Answers about volunteering as a ham radio operator (ARO) for the Marine Corps Marathon (MCM): licensing, equipment, training, frequencies, and race-day expectations."
+  jsonLd={faqPageLd}
 >
   <div class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,7 +31,7 @@ import { faqs } from '../data/faqs';
         <Icon name="lucide:circle-help" class="w-16 h-16 mx-auto text-[#CC0000] mb-4" aria-hidden="true" />
         <h1 class="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
         <p class="text-lg text-gray-700">
-          Common questions about volunteering as an amateur radio operator for the Marine Corps Marathon
+          Common questions about volunteering as a ham radio operator (ARO) for the Marine Corps Marathon (MCM)
         </p>
       </div>
 

@@ -6,14 +6,65 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  /** Path beginning with `/` — used for Open Graph / Twitter cards */
+  socialImagePath?: string;
+  /** Extra schema.org nodes merged into the page `@graph` (for example `FAQPage`) */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
+
+const defaultDescription =
+  'MCM Amateur Radio Operations — volunteer ham radio operators (AROs) supporting the Marine Corps Marathon (MCM) with course communications.';
 
 const {
   title,
-  description = 'MCM Amateur Radio Operations — amateur radio communications support for the Marine Corps Marathon.',
+  description = defaultDescription,
+  socialImagePath = '/images/mcmo_solid_white.png',
+  jsonLd,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteBase = Astro.site ?? new URL('https://mcmaro.com');
+const canonicalURL = new URL(Astro.url.pathname, siteBase);
+const siteHref = siteBase.href.endsWith('/') ? siteBase.href : `${siteBase.href}/`;
+const ogImageUrl = new URL(socialImagePath, siteBase).href;
+
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'Organization',
+    '@id': `${siteHref}#organization`,
+    name: 'MCM Amateur Radio Operations',
+    alternateName: ['Marine Corps Marathon Amateur Radio', 'MCM ARO'],
+    url: siteHref,
+    description:
+      'Volunteer amateur radio operators (AROs) providing ham radio communications for the Marine Corps Marathon (MCM).',
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${siteHref}#website`,
+    url: siteHref,
+    name: 'MCM Amateur Radio Operations',
+    description,
+    publisher: { '@id': `${siteHref}#organization` },
+    inLanguage: 'en-US',
+  },
+  {
+    '@type': 'WebPage',
+    '@id': `${canonicalURL.href}#webpage`,
+    url: canonicalURL.href,
+    name: title,
+    description,
+    isPartOf: { '@id': `${siteHref}#website` },
+    about: { '@id': `${siteHref}#organization` },
+  },
+];
+
+if (jsonLd) {
+  graph.push(...(Array.isArray(jsonLd) ? jsonLd : [jsonLd]));
+}
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': graph,
+};
 
 /** Bumps when favicon assets change — avoids stale browser cache */
 const faviconV = '3';
@@ -32,6 +83,21 @@ const faviconV = '3';
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MCM Amateur Radio Operations" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900 antialiased">
     <Header />
